@@ -582,16 +582,14 @@ function library:Create()
         UICorner_19.CornerRadius = UDim.new(31231, 31232131)
         UICorner_19.Parent = Ass
 
-        local function fire()
-            t = not t
-            if t then Ass:TweenSize(UDim2.new(0,7,0,7), "Out", "Linear", 0.1, true) end
-            if not t then Ass:TweenSize(UDim2.new(0,0,0,0), "Out", "Linear", 0.1, true) end
-            pcall(callback, t)
-        end
-        
+
+
         Toggle.InputBegan:connect(function(a)
             if a.UserInputType == Enum.UserInputType.MouseButton1 then
-                fire()
+                t = not t
+                if t then Ass:TweenSize(UDim2.new(0,7,0,7), "Out", "Linear", 0.1, true) end
+                if not t then Ass:TweenSize(UDim2.new(0,0,0,0), "Out", "Linear", 0.1, true) end
+                callback(t)
             end
         end)
 
