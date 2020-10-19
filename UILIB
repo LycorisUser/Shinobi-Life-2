@@ -588,11 +588,10 @@ function library:Create()
                 t = not t
                 if t then
                     Ass:TweenSize(UDim2.new(0,7,0,7), "Out", "Linear", 0.1, true)
-                    pcall(callback(true))
                 else
                     Ass:TweenSize(UDim2.new(0,0,0,0), "Out", "Linear", 0.1, true)
-                    pcall(callback(false))
                 end
+                pcall(callback(t))
             end
         end)
 
