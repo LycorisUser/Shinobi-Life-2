@@ -480,12 +480,13 @@ function library:Create()
         end)
     end
 
-    function creator:Toggle(name, desc, tab, callback)
+    function creator:Toggle(name, desc, tab, callback, tgl)
         name = name or "Toggle"
         desc = desc or "fucing togl"
         callback = callback or function() end
         tab = Tabs[tab].Tab:WaitForChild("Container") or Tabs:GetChildren()[2].Tab:WaitForChild("Container")
-        local t = false
+        local t = getgenv()[tgl]
+        t = false
         
         local Toggle = Instance.new("Frame")
         local ToggleBorder = Instance.new("Frame")
@@ -587,10 +588,10 @@ function library:Create()
                 t = not t
                 if t then
                     Ass:TweenSize(UDim2.new(0,7,0,7), "Out", "Linear", 0.1, true)
-                    callback(true)
+                    pcall(callback(true))
                 else
                     Ass:TweenSize(UDim2.new(0,0,0,0), "Out", "Linear", 0.1, true)
-                    callback(false)
+                    pcall(callback(false))
                 end
             end
         end)
