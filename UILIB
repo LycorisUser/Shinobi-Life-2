@@ -585,11 +585,12 @@ function library:Create()
 
         Toggle.InputBegan:connect(function(a)
             if a.UserInputType == Enum.UserInputType.MouseButton1 then
-                t = not t
-                if t then
+                if t == false then
                     Ass:TweenSize(UDim2.new(0,7,0,7), "Out", "Linear", 0.1, true)
+                    t = true
                 else
                     Ass:TweenSize(UDim2.new(0,0,0,0), "Out", "Linear", 0.1, true)
+                    t = false
                 end
                 pcall(callback(t))
             end
