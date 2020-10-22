@@ -1,8 +1,9 @@
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui
+ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = "LyHub"
 
 local Tabs = Instance.new("Folder")
 Tabs.Parent = ScreenGui
@@ -20,9 +21,29 @@ function library:New()
 	local lastPos = UDim2.new(0, 13, 0, 16)
 	local posCount = 0
 
-
+	local open = true
 
 	local creator = {}
+	uis.InputBegan:Connect(function(a, f)
+		if not f then
+			if a.KeyCode == Enum.KeyCode.Insert then
+				open = not open
+				if open then
+					for i, v in pairs(Tabs:GetChildren()) do
+						v.Visible = false
+						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = true
+						
+					end
+				else
+					for i, v in pairs(Tabs:GetChildren()) do
+						v.Visible = true
+						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = false
+
+					end
+				end
+			end
+		end
+	end)
 
 	function creator:Tab(name, tab)
 		local ysize = 0
@@ -414,3 +435,5 @@ function library:New()
 end
 
 return library
+
+
