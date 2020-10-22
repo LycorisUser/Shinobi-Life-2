@@ -1,9 +1,16 @@
+--skrrrr moment
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.Name = "LyHub"
+
+local hidelol = Instance.new("Frame")
+hidelol.Name = "hidelol"
+hidelol.Parent = game.StarterGui.ScreenGui
+hidelol.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
+hidelol.Size = UDim2.new(5, 0, 5, 0)
 
 local Tabs = Instance.new("Folder")
 Tabs.Parent = ScreenGui
@@ -26,17 +33,19 @@ function library:New()
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
 		if not f then
-			if a.KeyCode == Enum.KeyCode.Insert then
+			if a.KeyCode == Enum.KeyCode.F7 then
 				open = not open
 				if open then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
+						hidelol.Visible = false
 						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = true
 						
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
+						hidelol.Visible = true
 						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = false
 
 					end
