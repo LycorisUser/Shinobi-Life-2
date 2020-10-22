@@ -8,7 +8,7 @@ ScreenGui.Name = "LyHub"
 
 local hidelol = Instance.new("Frame")
 hidelol.Name = "hidelol"
-hidelol.Parent = game.StarterGui.ScreenGui
+hidelol.Parent = ScreenGui
 hidelol.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
 hidelol.BackgroundTransparency = .7
 hidelol.Size = UDim2.new(5, 0, 5, 0)
