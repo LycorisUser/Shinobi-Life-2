@@ -1,4 +1,4 @@
--skdowadioadjiwoa
+-jackspedicey
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -10,6 +10,7 @@ local hidelol = Instance.new("Frame")
 hidelol.Name = "hidelol"
 hidelol.Parent = game.StarterGui.ScreenGui
 hidelol.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
+hidelol.BackgroundTransparency = .7
 hidelol.Size = UDim2.new(5, 0, 5, 0)
 
 local Tabs = Instance.new("Folder")
@@ -24,9 +25,11 @@ function library:New()
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
 	local uis = game:GetService("UserInputService")
+	uis.MouseIconEnabled = false
 
 	local lastPos = UDim2.new(0, 13, 0, 16)
 	local posCount = 0
+	local getgenv().keybind = "G"
 
 	local open = true
 	local a = game:GetService("VirtualUser")
@@ -34,24 +37,17 @@ function library:New()
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
 		if not f then
-			if a.KeyCode == Enum.KeyCode.RightAlt then
+			if a.KeyCode == Enum.KeyCode[getgenv().keybind] then
 				open = not open
 				if open then
 					for i, v in pairs(Tabs:GetChildren()) do
-						v.Visible = false
-						hidelol.Visible = false
-						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = true
-						a:SetKeyDown("U+006D")
-						a:SetKeyUp("U+006D")
-						
+						v.Visible = true
+						hidelol.Visible = true
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
-						v.Visible = true
-						hidelol.Visible = true
-						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = false
-						a:SetKeyDown("U+006D")
-						a:SetKeyUp("U+006D")
+						v.Visible = false
+						hidelol.Visible = false
 					end
 				end
 			end
