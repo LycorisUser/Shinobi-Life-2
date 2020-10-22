@@ -29,7 +29,7 @@ function library:New()
 
 	local lastPos = UDim2.new(0, 13, 0, 16)
 	local posCount = 0
-	local getgenv().keybind = "G"
+	getgenv().keybind = "G"
 
 	local open = true
 	local a = game:GetService("VirtualUser")
