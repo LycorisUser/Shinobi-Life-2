@@ -40,6 +40,7 @@ function library:New()
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
 						hidelol.Visible = true
+						
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
