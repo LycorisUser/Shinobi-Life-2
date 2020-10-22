@@ -40,12 +40,12 @@ function library:New()
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
 						hidelol.Visible = true
-						
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						hidelol.Visible = false
+						
 					end
 				end
 			end
