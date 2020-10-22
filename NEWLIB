@@ -1,4 +1,3 @@
---bruh
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -10,7 +9,7 @@ local hidelol = Instance.new("Frame")
 hidelol.Name = "hidelol"
 hidelol.Parent = game.StarterGui.ScreenGui
 hidelol.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
-hidelol.BackgroundTransparency = .7
+hidelol.BackgroundTransparency = .3
 hidelol.Size = UDim2.new(5, 0, 5, 0)
 
 local Tabs = Instance.new("Folder")
@@ -29,7 +28,7 @@ function library:New()
 
 	local lastPos = UDim2.new(0, 13, 0, 16)
 	local posCount = 0
-	local getgenv().keybind = "P"
+	getgenv().keybind = "P"
 
 	local open = true
 	local creator = {}
