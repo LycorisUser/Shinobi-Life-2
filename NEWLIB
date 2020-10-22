@@ -1,4 +1,4 @@
---skrrrr moment
+-skdowadioadjiwoa
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -29,17 +29,20 @@ function library:New()
 	local posCount = 0
 
 	local open = true
-
+	local a = game:GetService("VirtualUser")
+	a:CaptureController()
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
 		if not f then
-			if a.KeyCode == Enum.KeyCode.F7 then
+			if a.KeyCode == Enum.KeyCode.RightAlt then
 				open = not open
 				if open then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						hidelol.Visible = false
 						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = true
+						a:SetKeyDown("U+006D")
+						a:SetKeyUp("U+006D")
 						
 					end
 				else
@@ -47,7 +50,8 @@ function library:New()
 						v.Visible = true
 						hidelol.Visible = true
 						plrs.LocalPlayer.StarterPlayer.EnableMouseLockOption = false
-
+						a:SetKeyDown("U+006D")
+						a:SetKeyUp("U+006D")
 					end
 				end
 			end
