@@ -63,7 +63,6 @@ function library:New()
 						
 					
 					end
-					local curr = workspace.CurrentCamera.CameraType
 					xa.Enabled = true
 					tb.Visible = true
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = -1})
@@ -71,15 +70,6 @@ function library:New()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
-					local timer = 0
-					local range = 0.01255
-					local speed = 0.02
-					function render_loop()
-						ShakeTimer = ShakeTimer + speed
-						workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame * CFrame.Angles(math.cos(timer*2)*range,math.sin(timer+math.pi/4)*range,0)
-					end
-					workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-					rs:BindToRenderStep("renderloop",200,render_loop)
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
@@ -91,11 +81,9 @@ function library:New()
 					xa.Enabled = false
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = 0})
 					t:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.25, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = 70})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = 70})
 					t2:Play()
 					uis.MouseIconEnabled = false
-					workspace.CurrentCamera.CameraType = curr
-					rService:UnbindFromRenderStep("renderloop")
 				end
 			end
 		end
