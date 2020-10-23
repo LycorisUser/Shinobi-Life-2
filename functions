@@ -1,0 +1,24 @@
+local functions = {}
+
+function functions:getLocalPlayer()
+    return game:GetService("Players").LocalPlayer
+end
+
+function functions:getRoot(v)
+    local x, s = pcall(function()
+        for i, v in pairs(v:GetDescendants()) do
+            if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("Part") then)
+                return v
+            end
+        end
+    end)
+    if s then print("[LyHub] Error, no root part for ".. v..".") end
+end
+
+function functions:enableMouse()
+    pcall(function()
+        game:GetService("UserInputService").MouseIconEnabled = true
+    end)
+end
+
+return functions
