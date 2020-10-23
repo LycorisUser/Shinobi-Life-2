@@ -73,7 +73,7 @@ function library:New()
 						local x = math.random(-100,100)/100
 						local y = math.random(-100,100)/100
 						local z = math.random(-100,100)/100
-						local tt = ts:Create(plrs.LocalPlayer:FindFirstChild("Humanoid"), TweenInfo.new(.3), {CameraOffset = Vector3.new(x,y,z})
+						local tt = plrs.LocalPlayer.Character:FindFirstChild("Humanoid"), TweenInfo.new(.3), {CameraOffset = Vector3.new(x,y,z})
 						tt:Play()
 					end
 				else
