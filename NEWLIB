@@ -5,13 +5,6 @@ ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.Name = "LyHub"
 
-local hidelol = Instance.new("Frame")
-hidelol.Name = "hidelol"
-hidelol.Parent = ScreenGui
-hidelol.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
-hidelol.BackgroundTransparency = .3
-hidelol.Size = UDim2.new(5, 0, 5, 0)
-
 local Tabs = Instance.new("Folder")
 Tabs.Parent = ScreenGui
 Tabs.Name = "Tabs"
@@ -29,6 +22,10 @@ function library:New()
 	local Tabs = Instance.new("Folder")
 	Tabs.Name = "Tabs"
 	Tabs.Parent = ScreenGui
+	
+	local xa = Instance.new("BlurEffect")
+	xa.Size = 24
+	xa.Parent = ScreenGui
 
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
@@ -48,17 +45,21 @@ function library:New()
 				if open then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
-						hidelol.Visible = true
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
-						tb.Visible = true
+						
+					
 					end
+					xa.Enabled = true
+					tb.Visible = true
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
-						hidelol.Visible = false
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = true
-						tb.Visible = false
+						
+						
 					end
+					tb.Visible = false
+					xa.Enabled = false
 				end
 			end
 		end
