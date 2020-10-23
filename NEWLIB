@@ -18,8 +18,9 @@ tb.Size = UDim2.new(0,0,0,0)
 tb.BorderSizePixel = 0
 
 getgenv().a = true
-	
-	
+uis.MouseIconEnabled = true
+
+local oldCam = workspace.CurrentCamera.CameraType
 function library:New()
 	local Tabs = Instance.new("Folder")
 	Tabs.Name = "Tabs"
@@ -70,6 +71,7 @@ function library:New()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
+					workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
@@ -84,6 +86,7 @@ function library:New()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = 70})
 					t2:Play()
 					uis.MouseIconEnabled = false
+					workspace.CurrentCamera.CameraType = oldCam
 				end
 			end
 		end
@@ -309,8 +312,9 @@ function library:New()
 		defaultvalue = defaultvalue or 100
 		callback = callback or function() end
 		local value = defaultvalue or 0
-
-
+		pcall(function()
+			callback(defaultvalue)
+		end)
 
 		local Slider = Instance.new("Frame")
 		local Name = Instance.new("TextLabel")
