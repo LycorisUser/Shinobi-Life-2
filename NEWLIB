@@ -71,7 +71,7 @@ function library:New()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
-					local ShakeTimer = 0
+					local timer = 0
 					local range = 0.01255
 					local speed = 0.02
 					function render_loop()
