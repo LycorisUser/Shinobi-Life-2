@@ -16,6 +16,8 @@ tb.Name = " "
 tb.Visible = true
 tb.Size = UDim2.new(0,0,0,0)
 tb.BorderSizePixel = 0
+
+getgenv().a = true
 	
 	
 function library:New()
@@ -53,7 +55,7 @@ function library:New()
 		if not f then
 			if a.KeyCode == Enum.KeyCode[getgenv().keybind] then
 				open = not open
-				if open then
+				if open and getgenv().a then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
@@ -66,7 +68,7 @@ function library:New()
 					t:Play()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
-				else
+				elseif not open and getgenv().a then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = true
@@ -328,7 +330,7 @@ function library:New()
 		Name.Position = UDim2.new(0.0157894734, 0, 0, 0)
 		Name.Size = UDim2.new(0, 154, 0, 28)
 		Name.Font = Enum.Font.Gotham
-		Name.Text = "Slider"
+		Name.Text = name
 		Name.TextColor3 = Color3.fromRGB(186, 186, 186)
 		Name.TextSize = 14.000
 		Name.TextWrapped = true
