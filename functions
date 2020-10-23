@@ -1,43 +1,49 @@
+local functionsz = {}
+
+function functionsz:GetFunctions()
+
 local functions = {}
+    function functions:getLocalPlayer()
+        return game:GetService("Players").LocalPlayer
+    end
 
-function functions:getLocalPlayer()
-    return game:GetService("Players").LocalPlayer
-end
-
-function functions:getRoot(x)
-    local x, s = pcall(function()
-        for i, v in pairs(x:GetDescendants()) do
-            if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("Part") then)
-                if v:IsDescendantOf(workspace) then
-                    return v
+    function functions:getRoot(x)
+        local x, s = pcall(function()
+            for i, v in pairs(x:GetDescendants()) do
+                if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("Part") then)
+                    if v:IsDescendantOf(workspace) then
+                        return v
+                    end
                 end
             end
-        end
-    end)
-    if s then print("[LyHub] Error, no root part for ".. v..".") end
-end
+        end)
+        if s then print("[LyHub] Error, no root part for ".. v..".") end
+    end
 
-function functions:enableMouse()
-    pcall(function()
-        game:GetService("UserInputService").MouseIconEnabled = true
-    end)
-end
+    function functions:enableMouse()
+        pcall(function()
+            game:GetService("UserInputService").MouseIconEnabled = true
+        end)
+    end
 
-function functions:service(x)
-    return game:GetService(tostring(x))
-end
+    function functions:service(x)
+        return game:GetService(tostring(x))
+    end
 
-function functions:getHumanoid(x)
-    local x, s = pcall(function()
-        for i, v in pairs(x:GetDescendants()) do
-            if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid") then)
-                if v:IsDescendantOf(workspace) then
-                    return v
+    function functions:getHumanoid(x)
+        local x, s = pcall(function()
+            for i, v in pairs(x:GetDescendants()) do
+                if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid") then)
+                    if v:IsDescendantOf(workspace) then
+                        return v
+                    end
                 end
             end
-        end
-    end)
-    if s then print("[LyHub] Error, no root part for ".. v..".") end
+        end)
+        if s then print("[LyHub] Error, no root part for ".. v..".") end
+    end
+    
+    return functions
 end
 
 return functions
