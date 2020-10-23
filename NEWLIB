@@ -40,12 +40,13 @@ function library:New()
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
 						hidelol.Visible = true
+						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						hidelol.Visible = false
-						
+						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = true
 					end
 				end
 			end
