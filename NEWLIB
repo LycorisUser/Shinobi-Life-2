@@ -53,9 +53,9 @@ function library:New()
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
 		if not f then
-			if a.KeyCode == Enum.KeyCode[getgenv().keybind] then
+			if a.KeyCode == Enum.KeyCode[getgenv().keybind] and getgenv().a then
 				open = not open
-				if open and getgenv().a then
+				if open then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
@@ -68,7 +68,7 @@ function library:New()
 					t:Play()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
-				elseif not open and getgenv().a then
+				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = true
