@@ -17,6 +17,12 @@ tb.Visible = true
 tb.Size = UDim2.new(0,0,0,0)
 tb.BorderSizePixel = 0
 
+local plrs = game:GetService("Players")
+	local mouse = plrs.LocalPlayer:GetMouse()
+	local uis = game:GetService("UserInputService")
+	local ts = game:GetService("TweenService")
+	local rs = game:GetService("RunService")
+
 getgenv().a = true
 uis.MouseIconEnabled = true
 
@@ -37,11 +43,7 @@ function library:New()
 	xe.Parent = game:GetService("Lighting")
 	
 
-	local plrs = game:GetService("Players")
-	local mouse = plrs.LocalPlayer:GetMouse()
-	local uis = game:GetService("UserInputService")
-	local ts = game:GetService("TweenService")
-	local rs = game:GetService("RunService")
+	
 	
 
 	local lastPos = UDim2.new(0, 13, 0, 16)
