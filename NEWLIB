@@ -1,8 +1,5 @@
+--a
 local library = {}
-
-if game:GetService("CoreGui"):FindFirstChild("LyHub") then
-	game.CoreGui.LyHub:Destroy()
-end
 
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game:GetService("CoreGui")
@@ -22,10 +19,10 @@ tb.Size = UDim2.new(0,0,0,0)
 tb.BorderSizePixel = 0
 
 local plrs = game:GetService("Players")
-	local mouse = plrs.LocalPlayer:GetMouse()
-	local uis = game:GetService("UserInputService")
-	local ts = game:GetService("TweenService")
-	local rs = game:GetService("RunService")
+local mouse = plrs.LocalPlayer:GetMouse()
+local uis = game:GetService("UserInputService")
+local ts = game:GetService("TweenService")
+local rs = game:GetService("RunService")
 
 getgenv().a = true
 uis.MouseIconEnabled = true
@@ -35,29 +32,35 @@ function library:New()
 	local Tabs = Instance.new("Folder")
 	Tabs.Name = "Tabs"
 	Tabs.Parent = ScreenGui
-	
+
 	local xa = Instance.new("BlurEffect")
 	xa.Size = 24
 	xa.Parent = game:GetService("Lighting")
 	xa.Name = "LBlur"
-	
+
 	local xe = Instance.new("ColorCorrectionEffect")
 	xe.Name = "LColor"
 	xe.Saturation = -1
 	xe.Parent = game:GetService("Lighting")
-	
 
-	
-	
+
+
+
 
 	local lastPos = UDim2.new(0, 13, 0, 16)
 	local posCount = 0
 	getgenv().keybind = "P"
-	
+
 	local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2), {FieldOfView = 40})
 	t2:Play()
 	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-	
+    local sound = Instance.new("Sound")
+    sound.Parent = workspace
+    sound.soundId = 'rbxassetid://138097048'
+    if not sound.IsLoaded then
+        sound.Loaded:wait()
+    end
+    sound:Play()
 	local open = true
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
@@ -68,32 +71,34 @@ function library:New()
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
-						
-					
 					end
 					xa.Enabled = true
 					tb.Visible = true
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = -1})
-					t:Play()
+                    t:Play()
+                    sound:Play()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
-					workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
+                    workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
+                    plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = true
-						
-						
+
+
 					end
 					tb.Visible = false
 					xa.Enabled = false
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = 0})
-					t:Play()
+                    t:Play()
+                    sound:Play()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = 70})
 					t2:Play()
 					uis.MouseIconEnabled = false
-					workspace.CurrentCamera.CameraType = getgenv().oldCam
+                    workspace.CurrentCamera.CameraType = getgenv().oldCam
+                    plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
 				end
 			end
 		end
@@ -491,5 +496,4 @@ function library:New()
 end
 
 return library
-
 
