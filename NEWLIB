@@ -81,7 +81,7 @@ function library:New()
 					t2:Play()
 					uis.MouseIconEnabled = true
                     workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-                    plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
+                    plrs.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = 100
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
@@ -98,7 +98,7 @@ function library:New()
 					t2:Play()
 					uis.MouseIconEnabled = false
                     workspace.CurrentCamera.CameraType = getgenv().oldCam
-                    plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
+                    plrs.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = 16
 				end
 			end
 		end
