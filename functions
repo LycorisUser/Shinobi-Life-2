@@ -36,7 +36,7 @@ function f:Get()
     function functions:getHumanoid(x)
         local x, s = pcall(function()
             for i, v in pairs(x:GetDescendants()) do
-                if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid") then)
+                if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid")) then
                     if v:IsDescendantOf(workspace) then
                         return v
                     end
