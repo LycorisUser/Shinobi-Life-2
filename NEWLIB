@@ -70,11 +70,10 @@ function library:New()
 					t2:Play()
 					uis.MouseIconEnabled = true
 					while open do wait()
-						local x = math.random(-100,100)/100
-						local y = math.random(-100,100)/100
-						local z = math.random(-100,100)/100
-						local tt = plrs.LocalPlayer.Character:FindFirstChild("Humanoid"), TweenInfo.new(.3), {CameraOffset = Vector3.new(x,y,z})
-						tt:Play()
+						workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame * CFrame.Angles(0.1,0,0)
+						wait()
+						workspace.CurrentCamera.CFrame = workspace.CurrentCamera.CFrame * CFrame.Angles(-0.1,0,0)
+						wait()
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
