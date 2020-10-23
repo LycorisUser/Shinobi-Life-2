@@ -1,3 +1,4 @@
+--dwada
 local f = {}
 function f:Get()
     local functions = {}
@@ -11,16 +12,13 @@ function f:Get()
     end
 
     function functions:getRoot(x)
-        local x, s = pcall(function()
-            for i, v in pairs(x:GetDescendants()) do
-                if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("BasePart")) then
-                    if v:IsDescendantOf(workspace) then
-                        return v
-                    end
+        if x:IsDescendantOf(game) then
+            for i, v in next(x:GetDescendants()) do
+                if v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") then
+                    return v
                 end
             end
-        end)
-        if s then print("[LyHub] Error, no root part for ".. v..".") end
+        end
     end
 
     function functions:enableMouse()
@@ -36,7 +34,7 @@ function f:Get()
     function functions:getHumanoid(x)
         local x, s = pcall(function()
             for i, v in pairs(x:GetDescendants()) do
-                if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid")) then
+                if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid") then)
                     if v:IsDescendantOf(workspace) then
                         return v
                     end
