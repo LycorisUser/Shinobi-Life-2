@@ -21,11 +21,13 @@ function library:New()
 	Tabs.Name = "Tabs"
 	Tabs.Parent = ScreenGui
 	
-	local tb = Instance.new("Button")
+	local tb = Instance.new("TextButton")
 	tb.Parent = ScreenGui
 	tb.Modal = true
 	tb.Name = " "
 	tb.Visible = true
+	tb.Size = UDim2.new(0,0,0,0)
+	tb.BorderSizePixel = 0
 
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
