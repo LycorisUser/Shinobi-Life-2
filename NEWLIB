@@ -20,6 +20,12 @@ function library:New()
 	local Tabs = Instance.new("Folder")
 	Tabs.Name = "Tabs"
 	Tabs.Parent = ScreenGui
+	
+	local tb = Instance.new("Button")
+	tb.Parent = ScreenGui
+	tb.Modal = true
+	tb.Name = " "
+	tb.Visible = true
 
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
@@ -41,12 +47,14 @@ function library:New()
 						v.Visible = true
 						hidelol.Visible = true
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
+						tb.Visible = true
 					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
 						hidelol.Visible = false
 						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = true
+						tb.Visible = false
 					end
 				end
 			end
