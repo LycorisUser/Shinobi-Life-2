@@ -335,6 +335,7 @@ function library:New()
 		Value.Position = UDim2.new(0.868421078, 0, 0.272727281, 0)
 		Value.Size = UDim2.new(0, 22, 0, 16)
 		Value.Font = Enum.Font.Gotham
+		Value.TextScaled = true
 		Value.Text = "100"
 		Value.TextColor3 = Color3.fromRGB(186, 186, 186)
 		Value.TextSize = 12.000
