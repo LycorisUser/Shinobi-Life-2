@@ -141,7 +141,7 @@ function library:New()
 
 		TAB.InputBegan:Connect(function(a, b)
 			if not b then
-				if a.UserInputType == Enum.UserInputType.MouseButton2 then
+				if a.UserInputType == Enum.UserInputType.MouseButton1 then
 					toggle = not toggle
 					if toggle then
 						Holder:TweenSize(UDim2.new(0, 198, 0, ysize), "Out", "Quint", 0.2, true)
