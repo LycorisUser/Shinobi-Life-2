@@ -8,7 +8,7 @@ function f:Get()
     end
 
     function functions:getLocalHumanoid()
-        return game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
+        return game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid")
     end
 
     function functions:getRoot(x)
@@ -32,16 +32,13 @@ function f:Get()
     end
 
     function functions:getHumanoid(x)
-        local x, s = pcall(function()
+        if x:IsDescendantOf(game) then
             for i, v in pairs(x:GetDescendants()) do
-                if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid") then)
-                    if v:IsDescendantOf(workspace) then
-                        return v
-                    end
+                if (v.Name == "Humanoid" and v.Parent:IsA("Model")) then
+                    return v
                 end
             end
-        end)
-        if s then print("[LyHub] Error, no Humanoid for ".. v..".") end
+        end
     end
     return functions
 end
