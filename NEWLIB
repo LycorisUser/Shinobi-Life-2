@@ -26,6 +26,13 @@ function library:New()
 	local xa = Instance.new("BlurEffect")
 	xa.Size = 24
 	xa.Parent = game:GetService("Lighting")
+	xa.Name = "LBlur"
+	
+	local xe = Instance.new("ColorCorrectionEffect")
+	xe.Name = "LColor"
+	xe.Saturation = -1
+	xe.Parent = game:GetService("Lighting")
+	
 
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
@@ -51,6 +58,7 @@ function library:New()
 					end
 					xa.Enabled = true
 					tb.Visible = true
+					xe.Enabled = true
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
@@ -60,6 +68,7 @@ function library:New()
 					end
 					tb.Visible = false
 					xa.Enabled = false
+					xe.Enabled = false
 				end
 			end
 		end
