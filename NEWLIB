@@ -66,7 +66,7 @@ function library:New()
 					tb.Visible = true
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = -1})
 					t:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.35, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
 				else
@@ -80,7 +80,7 @@ function library:New()
 					xa.Enabled = false
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = 0})
 					t:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.35, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 70})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {FieldOfView = 70})
 					t2:Play()
 					uis.MouseIconEnabled = false
 				end
