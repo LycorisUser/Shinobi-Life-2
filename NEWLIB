@@ -66,9 +66,16 @@ function library:New()
 					tb.Visible = true
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = -1})
 					t:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {FieldOfView = 40})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
+					while open do wait()
+						local x = math.random(-100,100)/100
+						local y = math.random(-100,100)/100
+						local z = math.random(-100,100)/100
+						local tt = ts:Create(plrs.LocalPlayer:FindFirstChild("Humanoid"), TweenInfo.new(.3), {CameraOffset = Vector3.new(x,y,z})
+						tt:Play()
+					end
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
@@ -80,7 +87,7 @@ function library:New()
 					xa.Enabled = false
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = 0})
 					t:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {FieldOfView = 70})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = 70})
 					t2:Play()
 					uis.MouseIconEnabled = false
 				end
