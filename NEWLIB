@@ -25,7 +25,7 @@ function library:New()
 	
 	local xa = Instance.new("BlurEffect")
 	xa.Size = 24
-	xa.Parent = ScreenGui
+	xa.Parent = game:GetService("Lighting")
 
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
