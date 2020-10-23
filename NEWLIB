@@ -69,7 +69,7 @@ function library:New()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {FieldOfView = 40})
 					t2:Play()
 					uis.MouseIconEnabled = true
-					while getgenv().a do wait()
+					while open do wait()
 						local tt = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {CFrame = CFrame * CFrame.Angles(2,5,0)})
 						local tt1 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {CFrame = CFrame * CFrame.Angles(-2,-5,0)})
 						tt:Play()
