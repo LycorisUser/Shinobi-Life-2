@@ -4,11 +4,13 @@ function functions:getLocalPlayer()
     return game:GetService("Players").LocalPlayer
 end
 
-function functions:getRoot(v)
+function functions:getRoot(x)
     local x, s = pcall(function()
-        for i, v in pairs(v:GetDescendants()) do
+        for i, v in pairs(x:GetDescendants()) do
             if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("Part") then)
-                return v
+                if v:IsDescendantOf(workspace) then
+                    return v
+                end
             end
         end
     end)
@@ -23,6 +25,19 @@ end
 
 function functions:service(x)
     return game:GetService(tostring(x))
+end
+
+function functions:getHumanoid(x)
+    local x, s = pcall(function()
+        for i, v in pairs(x:GetDescendants()) do
+            if (v.Name == "Humanoid" and v.Parent:IsA("Model") and v:IsA("Humanoid") then)
+                if v:IsDescendantOf(workspace) then
+                    return v
+                end
+            end
+        end
+    end)
+    if s then print("[LyHub] Error, no root part for ".. v..".") end
 end
 
 return functions
