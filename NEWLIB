@@ -64,7 +64,7 @@ function library:New()
 					tb.Visible = true
 					local t = ts:Create(xe, TweenInfo.new(.3), {Saturation = -1})
 					t:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2), {FieldOfView = 40})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2, "Quint", "Out"), {FieldOfView = 40})
 					t2:Play()
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
@@ -75,7 +75,7 @@ function library:New()
 					end
 					tb.Visible = false
 					xa.Enabled = false
-					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = 0})
+					local t = ts:Create(xe, TweenInfo.new(.2, "Quint", "Out"), {Saturation = 0})
 					t:Play()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2), {FieldOfView = 70})
 					t2:Play()
