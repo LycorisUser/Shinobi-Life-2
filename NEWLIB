@@ -1,4 +1,4 @@
---a
+--adawdwa
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -56,7 +56,7 @@ function library:New()
 	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
     local sound = Instance.new("Sound")
     sound.Parent = workspace
-    sound.soundId = 'rbxassetid://138097048'
+    sound.SoundId = 'rbxassetid://138097048'
     if not sound.IsLoaded then
         sound.Loaded:wait()
     end
