@@ -21,4 +21,8 @@ function functions:enableMouse()
     end)
 end
 
+function functions:service(x)
+    return game:GetService(tostring(x))
+end
+
 return functions
