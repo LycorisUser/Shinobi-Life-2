@@ -13,7 +13,7 @@ function f:Get()
     function functions:getRoot(x)
         local x, s = pcall(function()
             for i, v in pairs(x:GetDescendants()) do
-                if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("BasePart") then)
+                if (v.Name == "HumanoidRootPart" and v.Parent:IsA("Model") and v:IsA("BasePart")) then
                     if v:IsDescendantOf(workspace) then
                         return v
                     end
