@@ -2,7 +2,9 @@
 local library = {}
 
 if game:GetService("CoreGui"):FindFirstChild("LyHub") then
-	game.CoreGui.LyHub:Destroy()
+	pcall(function()
+		game:GetService("CoreGui"):FindFirstChild("LyHub")
+	end)
 end
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -64,6 +66,7 @@ function library:New()
     if not sound.IsLoaded then
         sound.Loaded:wait()
     end
+    sound:Play()
 	local open = true
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
