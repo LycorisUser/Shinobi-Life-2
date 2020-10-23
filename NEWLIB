@@ -30,7 +30,7 @@ function library:New()
 	
 	local xe = Instance.new("ColorCorrectionEffect")
 	xe.Name = "LColor"
-	xe.Saturation = 0
+	xe.Saturation = -1
 	xe.Parent = game:GetService("Lighting")
 	
 
@@ -43,7 +43,10 @@ function library:New()
 	local lastPos = UDim2.new(0, 13, 0, 16)
 	local posCount = 0
 	getgenv().keybind = "P"
-
+	
+	local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2), {FieldOfView = 40})
+	t2:Play()
+	
 	local open = true
 	local creator = {}
 	uis.InputBegan:Connect(function(a, f)
