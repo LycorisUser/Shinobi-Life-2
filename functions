@@ -1,12 +1,6 @@
 --a
 local library = {}
 
-if game:GetService("CoreGui"):FindFirstChild("LyHub") then
-	pcall(function()
-		game:GetService("CoreGui"):FindFirstChild("LyHub")
-	end)
-end
-
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
