@@ -30,7 +30,7 @@ local plrs = game:GetService("Players")
 getgenv().a = true
 uis.MouseIconEnabled = true
 
-local oldCam = workspace.CurrentCamera.CameraType
+getgenv().oldCam = workspace.CurrentCamera.CameraType
 function library:New()
 	local Tabs = Instance.new("Folder")
 	Tabs.Name = "Tabs"
@@ -56,6 +56,7 @@ function library:New()
 	
 	local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.2), {FieldOfView = 40})
 	t2:Play()
+	workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
 	
 	local open = true
 	local creator = {}
@@ -92,7 +93,7 @@ function library:New()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = 70})
 					t2:Play()
 					uis.MouseIconEnabled = false
-					workspace.CurrentCamera.CameraType = oldCam
+					workspace.CurrentCamera.CameraType = getgenv().oldCam
 				end
 			end
 		end
@@ -151,7 +152,7 @@ function library:New()
 
 		TAB.InputBegan:Connect(function(a, b)
 			if not b then
-				if a.UserInputType == Enum.UserInputType.MouseButton1 then
+				if a.UserInputType == Enum.UserInputType.MouseButton2 then
 					toggle = not toggle
 					if toggle then
 						Holder:TweenSize(UDim2.new(0, 198, 0, ysize), "Out", "Quint", 0.2, true)
