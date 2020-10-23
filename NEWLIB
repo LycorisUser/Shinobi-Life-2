@@ -16,18 +16,19 @@ local Tabs = Instance.new("Folder")
 Tabs.Parent = ScreenGui
 Tabs.Name = "Tabs"
 
+local tb = Instance.new("TextButton")
+tb.Parent = ScreenGui
+tb.Modal = true
+tb.Name = " "
+tb.Visible = true
+tb.Size = UDim2.new(0,0,0,0)
+tb.BorderSizePixel = 0
+	
+	
 function library:New()
 	local Tabs = Instance.new("Folder")
 	Tabs.Name = "Tabs"
 	Tabs.Parent = ScreenGui
-	
-	local tb = Instance.new("TextButton")
-	tb.Parent = ScreenGui
-	tb.Modal = true
-	tb.Name = " "
-	tb.Visible = true
-	tb.Size = UDim2.new(0,0,0,0)
-	tb.BorderSizePixel = 0
 
 	local plrs = game:GetService("Players")
 	local mouse = plrs.LocalPlayer:GetMouse()
