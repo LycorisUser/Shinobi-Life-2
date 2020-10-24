@@ -25,6 +25,7 @@ local ts = game:GetService("TweenService")
 local rs = game:GetService("RunService")
 
 getgenv().a = true
+getgenv().fov = 70
 uis.MouseIconEnabled = true
 
 getgenv().oldCam = workspace.CurrentCamera.CameraType
@@ -94,7 +95,7 @@ function library:New()
 					local t = ts:Create(xe, TweenInfo.new(.2), {Saturation = 0})
                     t:Play()
                     sound:Play()
-					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = client_settings.Slider_fov})
+					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = getgenv().fov})
 					t2:Play()
 					uis.MouseIconEnabled = false
                     workspace.CurrentCamera.CameraType = getgenv().oldCam
