@@ -1,0 +1,68 @@
+local tpmodule = {}
+
+    function tp(x)
+        _G.Speed = 500
+
+        local TweenService = game:GetService("TweenService")
+        local RunService = game:GetService("RunService")
+        local Players = game:GetService("Players")
+        local CurrentTweens = {}
+
+        local function bind(key, func)
+            key = key or "newKey"
+            func = func or function() end
+            RunService:BindToRenderStep(key, 1, func)
+        end
+
+        local function unbind(key)
+            key = key or "newKey"
+            RunService:UnbindFromRenderStep(key)
+        end
+
+        local function getPlayerCharacter()
+            local Char = Players.LocalPlayer.Character
+            if Char:IsDescendantOf(game) then
+                return Char
+            end
+        end
+
+        
+            local hrp = getPlayerCharacter():FindFirstChild("HumanoidRootPart")
+            if hrp and x then
+                pcall(function()
+                    CurrentTweens[1]:Cancel()
+                    CurrentTweens[1] = nil
+                end)
+                local a = Instance.new("CFrameValue")
+                a.Parent = getPlayerCharacter()
+                a.Value = hrp.CFrame
+
+                local goal = {}
+                goal.Value = x.CFrame
+
+                local ti = TweenInfo.new(
+                    (hrp.Position - x.Position).magnitude/_G.Speed,
+                    Enum.EasingStyle.Linear,
+                    Enum.EasingDirection.Out,
+                    0,
+                    false,
+                    0
+                )
+
+                local tween = TweenService:Create(a, ti, goal)
+                tween:Play()
+                CurrentTweens[1] = tween
+                bind("Teleporter", function()
+                    hrp.CFrame = a.Value
+                end)
+                tween.Completed:Connect(function()
+                    unbind("Teleporter")
+                    x.Parent = nil
+                    CurrentTweens[1] = nil
+                end)
+            end
+        end
+    
+
+
+return tpmodule
