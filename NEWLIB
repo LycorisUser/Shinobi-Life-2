@@ -1,6 +1,6 @@
---bruh hest
+--bruh hestwwwwwwwwwwwwwwwwwwwww
 local library = {}
-
+local oldcam = workspace.CurrentCamera.CameraType
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -35,7 +35,7 @@ function library:Destroy()
 	game:GetService("Lighting"):FindFirstChild("LColor"):Destroy()
 	game.Workspace.CurrentCamera.FieldOfView = 70
 	game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
-	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+	game.Workspace.CurrentCamera.CameraType = oldcam
 end
 function library:New()
 	local Tabs = Instance.new("Folder")
