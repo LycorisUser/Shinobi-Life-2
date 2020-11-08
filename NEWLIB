@@ -1,4 +1,4 @@
---shit ass
+--bruh hest
 local library = {}
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -35,6 +35,7 @@ function library:Destroy()
 	game:GetService("Lighting"):FindFirstChild("LColor"):Destroy()
 	game.Workspace.CurrentCamera.FieldOfView = 70
 	game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
+	game.Workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
 end
 function library:New()
 	local Tabs = Instance.new("Folder")
