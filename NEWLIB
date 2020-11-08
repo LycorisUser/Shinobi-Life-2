@@ -71,7 +71,6 @@ function library:New()
 				if open then
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = true
-						plrs.LocalPlayer.PlayerGui.Main.ingame.Visible = false
 					end
 					xa.Enabled = true
 					tb.Visible = true
@@ -82,7 +81,7 @@ function library:New()
 					t2:Play()
 					uis.MouseIconEnabled = true
                     workspace.CurrentCamera.CameraType = Enum.CameraType.Scriptable
-                    plrs.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = 100
+                    plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = true
 				else
 					for i, v in pairs(Tabs:GetChildren()) do
 						v.Visible = false
@@ -99,7 +98,7 @@ function library:New()
 					t2:Play()
 					uis.MouseIconEnabled = false
                     workspace.CurrentCamera.CameraType = getgenv().oldCam
-                    plrs.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = 16
+                    plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
 				end
 			end
 		end
