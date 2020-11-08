@@ -1,4 +1,4 @@
---bruh hestwwwwwwwwwwwwwwwwwwwww
+--bruh hestwwwwwwwwwwwwwwwwwwdwadawdawdawwww
 local library = {}
 local oldcam = workspace.CurrentCamera.CameraType
 local ScreenGui = Instance.new("ScreenGui")
@@ -97,7 +97,7 @@ function library:New()
 					sound:Play()
 					local t2 = ts:Create(workspace.CurrentCamera, TweenInfo.new(.15, Enum.EasingStyle.Quint, Enum.EasingDirection.In), {FieldOfView = getgenv().fov})
 					t2:Play()
-					uis.MouseIconEnabled = false
+					uis.MouseIconEnabled = true
 					workspace.CurrentCamera.CameraType = getgenv().oldCam
 					plrs.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Anchored = false
 				end
